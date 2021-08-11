@@ -1,0 +1,21 @@
+<div class="banner" style="background: url('<%= @park.banner_url %>'); background-position: center; background-size: cover;">
+
+</div>
+<% @park.plants.each do |plant| %>
+  <div class="card">
+    <div class="img-card" style="background: url('<%= plant.img_url %>'); background-position: center; background-size: cover;">
+
+    </div>
+    <div>
+      <h2><%= plant.name %></h2>
+    </div>
+
+    <%= link_to 'X', park_plant_path(@park, plant), method: :delete  %>
+  </div>
+
+<% end %>
+
+
+<%= link_to 'add Plant', new_park_plant_path(@park) %> |
+<%= link_to 'Edit', edit_park_path(@park) %> |
+<%= link_to 'Back', parks_path %>
